@@ -12,15 +12,20 @@ public class Redis extends Store {
     }
 
 
-    public int storeData (String url , String value) {
+    public int storeData (String url , String key) {
 
-        jedis.set(value,url);
+        jedis.set(key,url);
         
         return 1;
     }
 
-    public String getData (String value) {
-        return jedis.get(value);
+    public String getData (String key) {
+        return jedis.get(key);
+    }
+
+    public int delData (String key) {
+        jedis.del(key);
+        return 1;
     }
 
     
