@@ -1,5 +1,5 @@
 package com.example.url_shortner.store;
 
-public class store {
-    
+public class Store {
+       
 }
