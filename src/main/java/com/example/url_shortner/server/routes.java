@@ -46,7 +46,7 @@ public class routes {
     public String getMethodName(@PathVariable String param) {
         String url = svc.FindKey(param);
 
-        // HTTP GET and response for user 
+        
 
         return new String();
     }
