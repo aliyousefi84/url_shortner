@@ -2,8 +2,12 @@ package com.example.url_shortner.services;
 
 
 import com.example.url_shortner.store.*;
+
+import org.springframework.stereotype.Service;
+
 import com.example.url_shortner.schema.SetKey;
 
+@Service 
 public class Services {
     
     private Store store;
