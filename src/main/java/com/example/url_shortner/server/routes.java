@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 
 
 
@@ -24,6 +23,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping ("/api/v1")
 public class routes {
     
+    public routes (Services svc) {
+        this.svc = svc;
+    }
+
     @GetMapping("/health")
     public ResponseEntity<HealthCheck> healthCheck () {
         
@@ -43,16 +46,16 @@ public class routes {
     }
     
     @GetMapping("/search/{key}")
-    public String getMethodName(@PathVariable String param) {
+    public ResponseEntity<String> getMethodName(@PathVariable String param) {
+
         String url = svc.FindKey(param);
 
-        
+        return client.getPage(url);
 
-        return new String();
     }
     
 
     private Services svc;
-    
+    private HttpClientRequest client;
     
 }
