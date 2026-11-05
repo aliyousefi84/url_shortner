@@ -18,6 +18,7 @@ public class Services {
 
     public int RegisterKey (SetKey request) {
         // TODO : Check URL , then store
+        
         store.storeData(request.GetKey(), request.GetKey());
 
         return 1; 

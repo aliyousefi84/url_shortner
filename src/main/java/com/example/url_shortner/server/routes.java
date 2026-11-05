@@ -37,7 +37,7 @@ public class routes {
     }
 
     @PostMapping("/setkey")
-    public ResponseEntity<?> SetKey(@RequestBody SetKey request) {
+    public ResponseEntity<?> setKeyMethod(@RequestBody SetKey request) {
         
         svc.RegisterKey(request);
 
@@ -46,9 +46,9 @@ public class routes {
     }
     
     @GetMapping("/search/{key}")
-    public ResponseEntity<String> getMethodName(@PathVariable String param) {
+    public ResponseEntity<String> getMethodName(@PathVariable String key) {
 
-        String url = svc.FindKey(param);
+        String url = svc.FindKey(key);
 
         return client.getPage(url);
 
