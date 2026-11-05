@@ -4,6 +4,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.url_shortner.schema.HealthCheck;
 import com.example.url_shortner.schema.SetKey;
+import com.example.url_shortner.services.Services;
 
 import java.util.Map;
 
@@ -34,7 +35,8 @@ public class routes {
 
     @PostMapping("/setkey")
     public ResponseEntity<?> SetKey(@RequestBody SetKey request) {
-        // TODO: Service layer
+        
+        svc.RegisterKey(request);
 
         return ResponseEntity.ok(Map.of("status", "OK"));
         
@@ -42,7 +44,7 @@ public class routes {
     
     @GetMapping("/search/{key}")
     public String getMethodName(@PathVariable String param) {
-        // TODO: Service layer
+        String url = svc.FindKey(param);
 
         // HTTP GET and response for user 
 
@@ -50,7 +52,7 @@ public class routes {
     }
     
 
-    
+    private Services svc;
     
     
 }
