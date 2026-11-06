@@ -10,8 +10,8 @@ public class Log {
         LogFile = new File("server.log");
         if (LogFile == null) {
             System.out.println("unable to create log file");
-
         }
+        System.out.println("create log file in server.log");
         
     }
 

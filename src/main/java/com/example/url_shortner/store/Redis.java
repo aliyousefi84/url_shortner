@@ -16,7 +16,8 @@ public class Redis extends Store {
         if (jedis == null) {
             logMessage.WriteLogMessage("unable to connect redis server server");
         }
-    
+        logMessage.WriteLogMessage("connected to the server successfuly");
+
     }
 
 
@@ -40,5 +41,5 @@ public class Redis extends Store {
 
     
     private final JedisPooled jedis;
-    private final Log logMessage;      
+    
 }
