@@ -17,7 +17,7 @@ public class Redis extends Store {
 
     @Override public int storeData (String url , String key) {
 
-        jedis.set(key,url);
+        jedis.set(url,key);
         
         return 1;
     }

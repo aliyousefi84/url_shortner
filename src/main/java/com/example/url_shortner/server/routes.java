@@ -47,15 +47,19 @@ public class routes {
     
     @GetMapping("/search/{key}")
     public ResponseEntity<String> getMethodName(@PathVariable String key) {
-
+        if (key == null) {
+            System.out.println("FUCKING NULL LOL !!");
+        }
         String url = svc.FindKey(key);
-
+        if (url == null) {
+            System.out.println("FUCKING URL NULL LOL !!");
+        }
         return client.getPage(url);
 
     }
     
 
     private Services svc;
-    private HttpClientRequest client;
+    private HttpClientRequest client = new HttpClientRequest();
     
 }

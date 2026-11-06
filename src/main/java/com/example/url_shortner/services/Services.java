@@ -18,8 +18,10 @@ public class Services {
 
     public int RegisterKey (SetKey request) {
         // TODO : Check URL , then store
-        
-        store.storeData(request.GetKey(), request.GetKey());
+        if (request.GetUrl() == null) {
+            System.out.println("FUCKKKKKKKK");
+        }
+        store.storeData(request.GetKey(), request.GetUrl());
 
         return 1; 
 
