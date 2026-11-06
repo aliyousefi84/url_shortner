@@ -48,7 +48,7 @@ public class Services {
         String value = store.getData(key);
 
         if (value == null) {
-            store.logMessage.WriteLogMessage("the value of this key is null");
+            store.logMessage.WriteLogMessage("the value of the %s is null",key);
             return new Result (null,-1);
         }
         

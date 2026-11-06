@@ -15,7 +15,7 @@ public class Log {
         
     }
 
-    public void WriteLogMessage (String msg) {
+    public void WriteLogMessage (String msg,String... args) {
         try (FileWriter Write = new FileWriter(LogFile , true)) {
             Write.write(msg);
         } catch (Exception e) {

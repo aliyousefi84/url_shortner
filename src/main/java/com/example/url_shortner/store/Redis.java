@@ -24,18 +24,19 @@ public class Redis extends Store {
     @Override public int storeData (String url , String key) {
 
         jedis.set(url,key);
-        
+        logMessage.WriteLogMessage("set key:%s to the value:%s" , key, url);
         return 1;
     }
 
     @Override public String getData (String key) {
         String value = jedis.get(key);
-
+        logMessage.WriteLogMessage("get data from the key:%s" , key);
         return value;
     }
 
     @Override public int delData (String key) {
         jedis.del(key);
+        logMessage.WriteLogMessage("deleting the key:%s",key);
         return 1;
     }
 
