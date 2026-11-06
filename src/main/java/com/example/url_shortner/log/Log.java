@@ -2,6 +2,8 @@ package com.example.url_shortner.log;
 
 import java.io.File;
 import java.io.FileWriter;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 
 
@@ -19,7 +21,11 @@ public class Log {
 
     public void WriteLogMessage (String msg,String... args) {
         try (FileWriter Write = new FileWriter(LogFile , true)) {
-            Write.write(String.format(msg, args));
+            LocalDateTime DateTime = LocalDateTime.now();
+            DateTimeFormatter fmt = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm");
+            String TimeFormat = DateTime.format(fmt);
+            String msgFormat = String.format(msg, args);
+            Write.write(TimeFormat + " " + msgFormat);
         } catch (Exception e) {
             System.out.println("an error occurred");
             e.printStackTrace();
