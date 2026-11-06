@@ -5,6 +5,8 @@ import java.io.FileWriter;
 
 
 
+
+
 public class Log {
     public Log () {
         LogFile = new File("server.log");
@@ -17,7 +19,7 @@ public class Log {
 
     public void WriteLogMessage (String msg,String... args) {
         try (FileWriter Write = new FileWriter(LogFile , true)) {
-            Write.write(msg);
+            Write.write(String.format(msg, args));
         } catch (Exception e) {
             System.out.println("an error occurred");
             e.printStackTrace();

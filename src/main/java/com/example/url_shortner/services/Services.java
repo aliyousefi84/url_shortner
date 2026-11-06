@@ -23,17 +23,17 @@ public class Services {
     
     public int RegisterKey (SetKey request) {
         if (request.GetKey() == null) {
-            store.logMessage.WriteLogMessage("the key is null , please initialize the key");
+            store.logMessage.WriteLogMessage("the key is null , please initialize the key\n");
             return -1;
         }
         
         if (request.GetUrl() == null) {
-            store.logMessage.WriteLogMessage("the url is null , please initialize the url");
+            store.logMessage.WriteLogMessage("the url is null , please initialize the url\n");
             return -1;
         }
 
         if (URI.create(request.GetUrl()).getScheme() == null && URI.create(request.GetUrl()).getHost() == null) {
-            store.logMessage.WriteLogMessage("the url schema is not valid, please enter a valid url");
+            store.logMessage.WriteLogMessage("the url schema is not valid, please enter a valid url\n");
             return -2;
         }
 
