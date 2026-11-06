@@ -48,9 +48,12 @@ public class routes {
     @GetMapping("/search/{key}")
     public ResponseEntity<String> getMethodName(@PathVariable String key) {
         
-        String url = svc.FindKey(key);
-        System.out.println(url);
-        ResponseEntity<String> resp = client.getPage(url);
+        Services.Result r = svc.FindKey(key);
+        if (r.num() == -1) {
+            // http status code
+        }
+        
+        ResponseEntity<String> resp = client.getPage(r.value());
         return resp;
 
     }
@@ -58,5 +61,6 @@ public class routes {
 
     private Services svc;
     private HttpClientRequest client = new HttpClientRequest();
+    
     
 }
